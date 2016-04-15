@@ -20,9 +20,9 @@ sys_exit(int status)
 }
 
 int
-sys_wait(void)
+sys_wait(int *status)
 {
-  return wait();
+  return wait(status);
 }
 
 int
