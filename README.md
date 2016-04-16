@@ -12,3 +12,6 @@ unset SSH_ASKPASS
 git push
 
 Fix errors marco mentioned
+
+Potential errors?
+defs.h: Line ~107 exit(int) 

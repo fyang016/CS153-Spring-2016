@@ -58,6 +58,10 @@ void
 runcmd(struct cmd *cmd)
 {
   int p[2];
+  
+  int stat = 0;
+  int *status = &stat;
+  
   struct backcmd *bcmd;
   struct execcmd *ecmd;
   struct listcmd *lcmd;
@@ -93,7 +97,7 @@ runcmd(struct cmd *cmd)
     lcmd = (struct listcmd*)cmd;
     if(fork1() == 0)
       runcmd(lcmd->left);
-    wait();
+    wait(status);
     runcmd(lcmd->right);
     break;
 
@@ -117,8 +121,8 @@ runcmd(struct cmd *cmd)
     }
     close(p[0]);
     close(p[1]);
-    wait();
-    wait();
+    wait(status);
+    wait(status);
     break;
     
   case BACK:
@@ -167,7 +171,7 @@ main(void)
     }
     if(fork1() == 0)
       runcmd(parsecmd(buf));
-    wait();
+    wait(status);
   }
   exit(0);
 }
