@@ -1,0 +1,7 @@
+Walkthrough (due 04/20/16):
+
+-Explain how you would add your own hello world program so that you are able to execute it from the xv6 shell.
+
+-Track the operation of the wait system call using the debugger. Explain what happens when the process has no children when it has a child process.
+
+-Explain how the current scheduler works, including interaction with the timer.
