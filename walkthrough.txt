@@ -6,4 +6,5 @@ Then take a template of an already complete program, make a copy of it, and chan
 
 -Track the operation of the wait system call using the debugger. Explain what happens when the process has no children when it has a child process.
 
+
 -Explain how the current scheduler works, including interaction with the timer.
