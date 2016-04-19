@@ -1,8 +1,8 @@
 Walkthrough (due 04/20/16):
 
 -Explain how you would add your own hello world program so that you are able to execute it from the xv6 shell.
-Modify the Makefile's USER_PROGS to allow the execution of program with a keyword (for example, just the command "hello").
-Then take a template of an already complete program, make a copy of it, and change the copy so that it outputs "hello world."
+Modify the Makefile's USER_PROGS and UPROGS to allow the execution of program with a keyword (for example, just the command "hello").
+Then take a template of an already complete program, make a copy of it, and change the copy so that it outputs "hello world". Also, edit the EXTRA part of the Makefile to include this new file.
 
 -Track the operation of the wait system call using the debugger. Explain what happens when the process has no children when it has a child process.
 
