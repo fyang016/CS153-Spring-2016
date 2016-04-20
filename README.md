@@ -22,4 +22,12 @@ defs.h: Line ~107 exit(int)
 -Status variables don't have much significance
 
 ## gdb
+RUN THIS FIRST
+
+make qemu-nox-gdb
+
+THEN RUN THIS ON A SEPARATE TERMINAL IN IDENTICAL FOLDER
+
 gdb -q -iex "/home/csmajs/fyang016/CS153/CS153-Spring-2016/xv6-master"
+
+
