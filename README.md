@@ -1,5 +1,5 @@
 # CS153 - [Links](https://docs.google.com/document/d/18VAV-ve-HDO7JwX-s9P8zsvN0U2BrPcgXWFgazupUTk/edit?usp=sharing)
-
+Welcome!
 ## How to commit to repo
 git pull
 
@@ -20,6 +20,7 @@ defs.h: Line ~107 exit(int)
 
 ##Need to Fix/Change (may or may not highlight actual problems with code)
 -Invalid commands cause crashes
+
 -Status variables don't have much significance
 
 ##Troubleshooting
