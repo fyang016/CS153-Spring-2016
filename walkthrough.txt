@@ -9,4 +9,4 @@ When the process has no children, then it doesn't wait because there is nothing 
 When the process has a child process, the main process will wait for the child to exit before continuing. This means that the main process is put into the waiting queue until the child is done executing and left in the ready queue when the child is done executing.
 
 -Explain how the current scheduler works, including interaction with the timer.
-The current scheduler is using Round Robin. It is non-preemptive because the process itself sets its state. It does not interact with the timer interrupt.
+The current scheduler is using Round Robin. It is non-preemptive because the process itself sets its state. It interacts with the timer interrupt by giving each process relatively small intervals of time to a process before pausing and switching.
