@@ -33,6 +33,7 @@ gdb -q -iex "set auto-load safe-path /home/csmajs/fyang016/CS153/CS153-Spring-20
 
 ### If you are having issues connecting to GDB
 make clean
+
 make qemu-nox-gdb
 
 ### If you get the error:
