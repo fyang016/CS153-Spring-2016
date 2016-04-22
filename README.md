@@ -42,3 +42,6 @@ in GDB type the following:
 targer remote :26312
 
 check to make sure the port is correct. this is given by the output on the GDB Server you create
+
+## Important things to note
+scheduler is in proc.c
