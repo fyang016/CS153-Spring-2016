@@ -28,6 +28,6 @@ make qemu-nox-gdb
 
 THEN RUN THIS ON A SEPARATE TERMINAL IN IDENTICAL FOLDER
 
-gdb -q -iex "/home/csmajs/fyang016/CS153/CS153-Spring-2016/xv6-master"
+gdb -q -iex "set auto-load safe-path /home/csmajs/fyang016/CS153/CS153-Spring-2016/xv6-master"
 
 
