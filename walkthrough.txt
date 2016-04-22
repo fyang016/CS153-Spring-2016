@@ -6,6 +6,6 @@ Then take a template of an already complete program, make a copy of it, and chan
 
 -Track the operation of the wait system call using the debugger. Explain what happens when the process has no children, and when it has a child process.
 When the process has no children, then it doesn't wait because there is nothing to wait for.
-When the process has a child process, the main process will wait for the child to exit???
+When the process has a child process, the main process will wait for the child to exit before continuing. This means that the main process is put into the waiting queue until the child is done executing and left in the ready queue when the child is done executing.
 
 -Explain how the current scheduler works, including interaction with the timer.
