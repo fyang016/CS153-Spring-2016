@@ -22,7 +22,8 @@ sys_exit(int status)
 int
 sys_wait(void)
 {
-  return wait();
+  char * status;
+  return wait((int *)argptr(0, &status, 4));
 }
 
 int
