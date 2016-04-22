@@ -75,6 +75,6 @@ While you can override the remote by adding --force to the push command, you sho
 
 
 ##Pulling from another branch
-"git checkout <commit_hash> <relative_path_to_file_r_dir>"
+"git checkout \<commit_hash\> \<relative_path_to_file_r_dir\>"
 
-"git checkout <remote_name> <file_or_dir>"
+"git checkout \<remote_name\> \<file_or_dir\>"
