@@ -4,7 +4,8 @@ Walkthrough (due 04/20/16):
 Modify the Makefile's USER_PROGS and UPROGS to allow the execution of program with a keyword (for example, just the command "hello").
 Then take a template of an already complete program, make a copy of it, and change the copy so that it outputs "hello world". Also, edit the EXTRA part of the Makefile to include this new file.
 
--Track the operation of the wait system call using the debugger. Explain what happens when the process has no children when it has a child process.
-
+-Track the operation of the wait system call using the debugger. Explain what happens when the process has no children, and when it has a child process.
+When the process has no children, then it doesn't wait because there is nothing to wait for.
+When the process has a child process, the main process will wait for the child to exit???
 
 -Explain how the current scheduler works, including interaction with the timer.
