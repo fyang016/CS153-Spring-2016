@@ -1,5 +1,4 @@
-# CS153 - [Links](https://docs.google.com/document/d/18VAV-ve-HDO7JwX-s9P8zsvN0U2BrPcgXWFgazupUTk/edit?usp=sharing)
- - [Lab 1 Doc](http://www.cs.ucr.edu/~nael/cs153/labs/lab1.html) - [HW1 Key](http://www.cs.ucr.edu/~nael/cs153/resources/hw1-key.txt)
+# CS153 - [Links](https://docs.google.com/document/d/18VAV-ve-HDO7JwX-s9P8zsvN0U2BrPcgXWFgazupUTk/edit?usp=sharing) - [Lab 1 Doc](http://www.cs.ucr.edu/~nael/cs153/labs/lab1.html) - [HW1 Key](http://www.cs.ucr.edu/~nael/cs153/resources/hw1-key.txt)
 Welcome!
 ## How to commit to repo
 git pull
