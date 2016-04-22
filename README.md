@@ -30,4 +30,14 @@ THEN RUN THIS ON A SEPARATE TERMINAL IN IDENTICAL FOLDER
 
 gdb -q -iex "set auto-load safe-path /home/csmajs/fyang016/CS153/CS153-Spring-2016/xv6-master"
 
+## If you are having issues connecting to GDB
+make clean
+make qemu-nox-gdb
+
+## If you get the error:
+## No symbol table is loaded. Use the "file" command.
+##in GDB type the fallowing:
+targer remote :26312
+## check to make sure the port is correct. this is given by the output
+## on the GDB Server your create
 
