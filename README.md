@@ -72,3 +72,9 @@ You can remedy this by fetching and merging the remote branch, or using pull to 
 
 In other cases this error is a result of destructive changes made locally by using commands like git commit --amend or git rebase.
 While you can override the remote by adding --force to the push command, you should only do so if you are absolutely certain this is what you want to do. Force-pushes can cause issues for other users that have fetched the remote branch, and is considered bad practice. When in doubt, don’t force-push.
+
+
+##Pulling from another branch
+git checkout <commit_hash> <relative_path_to_file_r_dir>
+
+git checkout <remote_name> <file_or_dir>
