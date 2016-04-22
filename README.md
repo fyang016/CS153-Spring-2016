@@ -1,4 +1,6 @@
 # CS153
+#[Links](https://docs.google.com/document/d/18VAV-ve-HDO7JwX-s9P8zsvN0U2BrPcgXWFgazupUTk/edit?usp=sharing)
+
 ## How to commit to repo
 git pull
 
