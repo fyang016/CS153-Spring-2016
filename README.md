@@ -22,7 +22,7 @@ defs.h: Line ~107 exit(int)
 -Status variables don't have much significance
 
 ##Troubleshooting
-### gdb
+### Running gdb with xv6
 RUN THIS FIRST
 
 make qemu-nox-gdb
