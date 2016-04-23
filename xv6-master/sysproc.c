@@ -22,9 +22,15 @@ sys_exit(int status)
 int
 sys_wait(void)
 {
-  char * status;
-  return wait((int *)argptr(0, &status, 4));
+  int size = 4;
+  char **aChar;
+  if(argptr(0, a, size) < 0 )
+    return -1;
+  int* status = (int*)(&aChar);
+  return wait(status);
+
 }
+
 
 int
 sys_kill(void)
