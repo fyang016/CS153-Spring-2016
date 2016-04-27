@@ -249,8 +249,6 @@ pipe1(void)
     wait(0);
   } else {
     printf(1, "fork() failed\n");
-  } else {
-    printf(1, "fork() failed\n");
     exit(1);
   }
   printf(1, "pipe1 ok\n");
@@ -421,9 +419,6 @@ twofiles(void)
 {
   int fd, pid, i, j, n, total;
   char *fname;
-  
-  int stat = 0;
-  int *status = &stat;
 
   printf(1, "twofiles test\n");
 
