@@ -9,8 +9,11 @@ Then you need to modify the scheduler() function in the proc.c file.
 
 The default scheduler is round-robin. Now you need to change it to find a highest priority. 
 
-If there is a higher priority process, 
-kernel should pick that process to run. If every processes' priority are same, then the scheduler would be back to round-robin scheduler. 
+###Proposal: have the priority scheduler as a function separate from the round-robin scheduler and have the priority scheduler run by default. Processes with the same priority will call the round-robin scheduler.
+
+###Potential Problem: Comments say that scheduler never returns. Does this mean that doing a function call is not a possibility?
+If there is a higher priority process, kernel should pick that process to run. 
+If every processes' priority are same, then the scheduler would be back to round-robin scheduler. 
  
 Best
 Songwei Jin
