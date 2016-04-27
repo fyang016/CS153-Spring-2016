@@ -12,7 +12,9 @@ int main(int argc, char *argv[]){
    void *tid = thread_create(test_func, (void *)0);
    if(tid ==0) 
        printf(1,"wrong happen");
+   while(wait()>= 0)
    printf(1,"back to parent n = %d\n",n);
+   
    exit();
 }
 

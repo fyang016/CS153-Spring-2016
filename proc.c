@@ -241,12 +241,6 @@ int clone(int stack, int size, int routine, int arg){
 
     switchuvm(np);
 
-//    cprintf("\nchild esp points to : %d\n",np->tf->esp);
-//    cprintf("parent esp points to : %d\n",proc->tf->esp);
-//    cprintf("parent pid : %d\n",proc->pid);
-//    cprintf("child pid : %d\n\n",np->pid);
-
-
      acquire(&ptable.lock);
     np->state = RUNNABLE;
      release(&ptable.lock);
@@ -347,7 +341,8 @@ wait(void)
         // Scan through table looking for zombie children.
         havekids = 0;
         for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
-            if(p->parent != proc && p->isthread ==1)
+        //    if(p->parent != proc && p->isthread ==1)
+            if(p->parent != proc) 
                 continue;
             havekids = 1;
             if(p->state == ZOMBIE){
