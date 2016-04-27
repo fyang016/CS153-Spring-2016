@@ -1,0 +1,16 @@
+#Xv6 is already set the timer for you. 
+
+##Add "int priorityNum;" to proc struct?
+First, you should have a priority attribute in the proc structure (in the proc.h). 
+
+##In the void scheduler function, the object with the proc struct is created before anything else is done.
+##So, priorityNum can be called with p->priorityNum
+Then you need to modify the scheduler() function in the proc.c file. 
+
+The default scheduler is round-robin. Now you need to change it to find a highest priority. 
+
+If there is a higher priority process, 
+kernel should pick that process to run. If every processes' priority are same, then the scheduler would be back to round-robin scheduler. 
+ 
+Best
+Songwei Jin
