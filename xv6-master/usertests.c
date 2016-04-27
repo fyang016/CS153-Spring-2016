@@ -207,10 +207,7 @@ pipe1(void)
 {
   int fds[2], pid;
   int seq, i, n, cc, total;
-  
-  int stat = 0;
-  int *status = &stat;
-  
+
   if(pipe(fds) != 0){
     printf(1, "pipe() failed\n");
     exit(1);
@@ -249,7 +246,9 @@ pipe1(void)
       exit(0);
     }
     close(fds[0]);
-    wait(status);
+    wait(0);
+  } else {
+    printf(1, "fork() failed\n");
   } else {
     printf(1, "fork() failed\n");
     exit(1);
@@ -263,10 +262,7 @@ preempt(void)
 {
   int pid1, pid2, pid3;
   int pfds[2];
-  
-  int stat = 0;
-  int *status = &stat;
-  
+
   printf(1, "preempt: ");
   pid1 = fork();
   if(pid1 == 0)
@@ -300,9 +296,9 @@ preempt(void)
   kill(pid2);
   kill(pid3);
   printf(1, "wait... ");
-  wait(status);
-  wait(status);
-  wait(status);
+  wait(0);
+  wait(0);
+  wait(0);
   printf(1, "preempt ok\n");
 }
 
@@ -311,10 +307,7 @@ void
 exitwait(void)
 {
   int i, pid;
-  
-  int stat = 0;
-  int *status = &stat;
-  
+
   for(i = 0; i < 100; i++){
     pid = fork();
     if(pid < 0){
@@ -322,7 +315,7 @@ exitwait(void)
       return;
     }
     if(pid){
-      if(wait(status) != pid){
+      if(wait(0) != pid){
         printf(1, "wait wrong pid\n");
         return;
       }
@@ -338,10 +331,7 @@ mem(void)
 {
   void *m1, *m2;
   int pid, ppid;
-  
-  int stat = 0;
-  int *status = &stat;
-  
+
   printf(1, "mem test\n");
   ppid = getpid();
   if((pid = fork()) == 0){
@@ -365,7 +355,7 @@ mem(void)
     printf(1, "mem ok\n");
     exit(0);
   } else {
-    wait(status);
+    wait(0);
   }
 }
 
@@ -378,10 +368,7 @@ sharedfd(void)
 {
   int fd, pid, i, n, nc, np;
   char buf[10];
-  
-  int stat = 0;
-  int *status = &stat;
-  
+
   printf(1, "sharedfd test\n");
 
   unlink("sharedfd");
@@ -401,7 +388,7 @@ sharedfd(void)
   if(pid == 0)
     exit(0);
   else
-    wait(status);
+    wait(0);
   close(fd);
   fd = open("sharedfd", 0);
   if(fd < 0){
@@ -465,7 +452,7 @@ twofiles(void)
   }
   close(fd);
   if(pid)
-    wait(status);
+    wait(0);
   else
     exit(0);
 
@@ -500,10 +487,6 @@ createdelete(void)
 {
   enum { N = 20 };
   int pid, i, fd;
-   
-  int stat = 0;
-  int *status = &stat;
- 
   char name[32];
 
   printf(1, "createdelete test\n");
@@ -535,7 +518,7 @@ createdelete(void)
   if(pid==0)
     exit(0);
   else
-    wait(status);
+    wait(0);
 
   for(i = 0; i < N; i++){
     name[0] = 'p';
@@ -690,11 +673,7 @@ concreate(void)
 {
   char file[3];
   int i, pid, n, fd;
-   
-  int stat = 0;
-  int *status = &stat;
-
- char fa[40];
+  char fa[40];
   struct {
     ushort inum;
     char name[14];
@@ -722,7 +701,7 @@ concreate(void)
     if(pid == 0)
       exit(0);
     else
-      wait(status);
+      wait(0);
   }
 
   memset(fa, 0, sizeof(fa));
@@ -774,7 +753,7 @@ concreate(void)
     if(pid == 0)
       exit(0);
     else
-      wait(status);
+      wait(0);
   }
 
   printf(1, "concreate ok\n");
@@ -786,9 +765,6 @@ void
 linkunlink()
 {
   int pid, i;
-  
-  int stat = 0;
-  int *status = &stat;
 
   printf(1, "linkunlink test\n");
 
@@ -812,7 +788,7 @@ linkunlink()
   }
 
   if(pid)
-    wait(status);
+    wait(0);
   else 
     exit(0);
 
@@ -1311,9 +1287,6 @@ void
 forktest(void)
 {
   int n, pid;
-  
-  int stat = 0;
-  int *status = &stat;
 
   printf(1, "fork test\n");
 
@@ -1331,13 +1304,13 @@ forktest(void)
   }
   
   for(; n > 0; n--){
-    if(wait(status) < 0){
+    if(wait(0) < 0){
       printf(1, "wait stopped early\n");
       exit(0);
     }
   }
   
-  if(wait(status) != -1){
+  if(wait(0) != -1){
     printf(1, "wait got too many\n");
     exit(0);
   }
@@ -1349,10 +1322,6 @@ void
 sbrktest(void)
 {
   int fds[2], pid, pids[10], ppid;
-   
-  int stat = 0;
-  int *status = &stat;
- 
   char *a, *b, *c, *lastaddr, *oldbrk, *p, scratch;
   uint amt;
 
@@ -1384,7 +1353,7 @@ sbrktest(void)
   }
   if(pid == 0)
     exit(0);
-  wait(status);
+  wait(0);
 
   // can one grow address space to something big?
 #define BIG (100*1024*1024)
@@ -1444,7 +1413,7 @@ sbrktest(void)
       kill(ppid);
       exit(0);
     }
-    wait(status);
+    wait(0);
   }
 
   // if we run the system out of memory, does it clean up the last
@@ -1471,7 +1440,7 @@ sbrktest(void)
     if(pids[i] == -1)
       continue;
     kill(pids[i]);
-    wait(status);
+    wait(0);
   }
   if(c == (char*)0xffffffff){
     printf(stdout, "failed sbrk leaked memory\n");
@@ -1501,10 +1470,6 @@ void
 validatetest(void)
 {
   int hi, pid;
-   
-  int stat = 0;
-  int *status = &stat;
-  
   uint p;
 
   printf(stdout, "validate test\n");
@@ -1519,7 +1484,7 @@ validatetest(void)
     sleep(0);
     sleep(0);
     kill(pid);
-    wait(status);
+    wait(0);
 
     // try to crash the kernel by passing in a bad string pointer
     if(link("nosuchfile", (char*)p) != -1){
@@ -1555,9 +1520,6 @@ void
 bigargtest(void)
 {
   int pid, fd;
-  
-  int stat = 0;
-  int *status = &stat;
 
   unlink("bigarg-ok");
   pid = fork();
@@ -1577,7 +1539,7 @@ bigargtest(void)
     printf(stdout, "bigargtest: fork failed\n");
     exit(0);
   }
-  wait(status);
+  wait(0);
   fd = open("bigarg-ok", 0);
   if(fd < 0){
     printf(stdout, "bigarg test failed!\n");

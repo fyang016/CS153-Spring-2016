@@ -52,7 +52,15 @@ scheduler is in proc.c
 
 
 
+<<<<<<< HEAD
 Dealing with [34m~@~\non-fast-forward[34m~@~] errors
+=======
+
+
+
+
+Dealing with “non-fast-forward” errors
+>>>>>>> wait
 
 From time to time you may encounter this error while pushing:
 $ git push origin master
@@ -67,7 +75,11 @@ Simply put, git cannot make the change on the remote without losing commits, so 
 You can remedy this by fetching and merging the remote branch, or using pull to perform both at once.
 
 In other cases this error is a result of destructive changes made locally by using commands like git commit --amend or git rebase.
+<<<<<<< HEAD
 While you can override the remote by adding --force to the push command, you should only do so if you are absolutely certain this is what you want to do. Force-pushes can cause issues for other users that have fetched the remote branch, and is considered bad practice. When in doubt, don[34m~@~Yt force-push.
+=======
+While you can override the remote by adding --force to the push command, you should only do so if you are absolutely certain this is what you want to do. Force-pushes can cause issues for other users that have fetched the remote branch, and is considered bad practice. When in doubt, don’t force-push.
+>>>>>>> wait
 
 
 ##Pulling from another branch

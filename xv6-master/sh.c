@@ -58,10 +58,6 @@ void
 runcmd(struct cmd *cmd)
 {
   int p[2];
-  
-  int stat = 0;
-  int *status = &stat;
-  
   struct backcmd *bcmd;
   struct execcmd *ecmd;
   struct listcmd *lcmd;
@@ -97,7 +93,7 @@ runcmd(struct cmd *cmd)
     lcmd = (struct listcmd*)cmd;
     if(fork1() == 0)
       runcmd(lcmd->left);
-    wait(status);
+    wait(0);
     runcmd(lcmd->right);
     break;
 
@@ -121,8 +117,8 @@ runcmd(struct cmd *cmd)
     }
     close(p[0]);
     close(p[1]);
-    wait(status);
-    wait(status);
+    wait(0);
+    wait(0);
     break;
     
   case BACK:
@@ -151,9 +147,6 @@ main(void)
   static char buf[100];
   int fd;
   
-  int stat = 0;
-  int *status = &stat;
-   
   // Assumes three file descriptors open.
   while((fd = open("console", O_RDWR)) >= 0){
     if(fd >= 3){
@@ -174,7 +167,7 @@ main(void)
     }
     if(fork1() == 0)
       runcmd(parsecmd(buf));
-    wait(status);
+    wait(0);
   }
   exit(0);
 }
