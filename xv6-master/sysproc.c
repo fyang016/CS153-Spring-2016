@@ -117,3 +117,14 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
+int
+sys_changepriority(void)
+{
+  int priority;
+  /*first value      
+    argptr saves the pointer variable to the second argument
+    4 bytes */
+  argptr(0,(char**)&priority,4);
+  return changepriority(priority);
+}

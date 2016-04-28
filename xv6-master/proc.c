@@ -69,7 +69,11 @@ found:
   p->context = (struct context*)sp;
   memset(p->context, 0, sizeof *p->context);
   p->context->eip = (uint)forkret;
-
+  
+  // Every priority starts off with a number of 0.
+  // Change the number with a system call.
+  p->priorityNum = 0;
+  
   return p;
 }
 
@@ -538,4 +542,7 @@ procdump(void)
   }
 }
 
-
+int 
+changepriority(int prioritynum) {
+  return prioritynum;
+}

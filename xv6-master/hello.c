@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
 	int pid = fork(); //Create a child Process
 	if(pid == 0){
 		printf(1, "I'm the child going to sleep\n");
-		sleep(100);
+		sleep(300);
 		printf(1, "Child Process finished\n");
 	}
 	else{
@@ -18,6 +18,6 @@ int main(int argc, char *argv[])
 	}
 	int status = 2;
 	printf(1, "Result from last wait: %d", waitpid(status,&status,status));
-	//wait(&status);
+	printf(1, "Result from last wait: %d", changepriority(63));
 	exit(0);
 }

@@ -68,6 +68,7 @@ struct proc {
   char name[16];               // Process name (debugging)
   int exit_status;             // Exit Status
   struct proc* wpid[20];       //The waiting list of processes
+  int priorityNum;
   int wcount;                  //The number of processes waiting
 };
 
