@@ -52,15 +52,10 @@ scheduler is in proc.c
 
 
 
-<<<<<<< HEAD
-Dealing with [34m~@~\non-fast-forward[34m~@~] errors
-=======
-
 
 
 
 Dealing with “non-fast-forward” errors
->>>>>>> wait
 
 From time to time you may encounter this error while pushing:
 $ git push origin master

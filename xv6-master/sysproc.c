@@ -37,6 +37,22 @@ sys_wait(void)
 
 }
 
+int
+sys_waitpid(void)
+{
+	int pid;
+	argptr(0,(char**) &pid, 4); //Read PID variable from stack 4 bytes = int
+	int *status;
+	argptr(1,(char**) &status, 4); //Get reference to Status 
+	int options;
+	argptr(2, (char**) &options, 4);
+
+	return waitpid(pid, status, options);
+
+	//int stuff;
+	//return waitpid(0, &stuff, 0);
+}
+
 
 int
 sys_kill(void)

@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
 	int pid = fork(); //Create a child Process
 	if(pid == 0){
 		printf(1, "I'm the child going to sleep\n");
-		sleep(300);
+		sleep(100);
 		printf(1, "Child Process finished\n");
 	}
 	else{
@@ -16,5 +16,8 @@ int main(int argc, char *argv[])
 		printf(1, "Result %d\n", wait(0));
 		printf(1, "Parent Process Has finished\n");
 	}
+	int status = 2;
+	printf(1, "Result from last wait: %d", waitpid(status,&status,status));
+	//wait(&status);
 	exit(0);
 }

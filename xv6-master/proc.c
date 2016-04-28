@@ -130,7 +130,6 @@ fork(void)
 {
   int i, pid;
   struct proc *np;
-
   // Allocate process.
   if((np = allocproc()) == 0)
     return -1;
@@ -145,6 +144,14 @@ fork(void)
   np->sz = proc->sz;
   np->parent = proc;
   *np->tf = *proc->tf;
+  np->exit_status = 0;
+  np->wcount = 0;
+
+  //Empty all waiting processes
+  for(i = 0; i < sizeof(np->wpid); i++)
+  {
+    np->wpid[i] = 0;
+  }
 
   // Clear %eax so that fork returns 0 in the child.
   np->tf->eax = 0;
@@ -188,6 +195,13 @@ exit(int status)
   // Parent might be sleeping in wait().
   wakeup1(proc->parent);
 
+  // Wake up any other processes that might be going.
+  while(proc->wcount > 0)
+  {
+    proc->wcount--;
+    wakeup1(proc->wpid[proc->wcount]);
+  }
+
   // Pass abandoned children to init.
   for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
     if(p->parent == proc){
@@ -221,6 +235,8 @@ wait(int * status)
       if(p->parent != proc)
         continue;
       havekids = 1;
+      //If its a zombie then we have a child with no
+      //parent claimed. Remove all its resources
       if(p->state == ZOMBIE){
         // Found one.
         pid = p->pid;
@@ -248,6 +264,69 @@ wait(int * status)
   }
 }
 
+int
+waitpid(int pid, int * status, int options){
+  struct proc *p;
+  int waitProcess;
+
+  acquire(&ptable.lock);
+  //int* status = (int*)(&aChar);
+  for(;;)
+  {
+    // Scan through table looking fora specific process.
+    waitProcess = 0;
+    for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+      //Look for process id
+      if(p->pid != pid)
+        continue;
+      waitProcess = 1;
+
+      //Add yourself to the processes waiting list
+      if(p->wcount < sizeof(p->wpid))
+      {
+        p->wpid[p->wcount] = proc;
+        p->wcount++;
+      }
+
+      //We will only clear the process if its our child
+      if(p->state == ZOMBIE){
+        /*if(p->parent == proc)
+        {*/
+          // Found one.
+          pid = p->pid;
+          kfree(p->kstack);
+          p->kstack = 0;
+          freevm(p->pgdir);
+          p->state = UNUSED;
+          p->pid = 0;
+          p->parent = 0;
+          p->name[0] = 0;
+          p->killed = 0;
+          release(&ptable.lock);
+          return pid;
+        /*}
+        else{
+          release(&ptable.lock);
+          return pid;          
+        }*/
+      }
+    }
+
+    // No point waiting if we don't have process.
+    if(!waitProcess){
+      release(&ptable.lock);
+      return -1;
+    }
+    // No point waiting if we don't have process.
+    if(proc->killed){
+      release(&ptable.lock);
+      return -1;
+    }
+
+    // Wait for process to exit.  (See wakeup1 call in proc_exit.)
+    sleep(proc, &ptable.lock);  //DOC: wait-sleep
+  }
+}
 //PAGEBREAK: 42
 // Per-CPU process scheduler.
 // Each CPU calls scheduler() after setting itself up.
@@ -385,6 +464,7 @@ wakeup1(void *chan)
   struct proc *p;
 
   for(p = ptable.proc; p < &ptable.proc[NPROC]; p++)
+    //If the process is sleeping
     if(p->state == SLEEPING && p->chan == chan)
       p->state = RUNNABLE;
 }
