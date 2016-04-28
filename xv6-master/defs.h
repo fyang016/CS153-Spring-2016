@@ -115,6 +115,7 @@ void            sleep(void*, struct spinlock*);
 void            userinit(void);
 int             wait(int *);
 void            wakeup(void*);
+int		changepriority(int);
 void            yield(void);
 
 // swtch.S

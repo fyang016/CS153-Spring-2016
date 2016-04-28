@@ -462,4 +462,7 @@ procdump(void)
   }
 }
 
-
+int 
+changepriority(int prioritynum) {
+  return prioritynum;
+}

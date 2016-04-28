@@ -16,5 +16,6 @@ int main(int argc, char *argv[])
 		printf(1, "Result %d\n", wait(0));
 		printf(1, "Parent Process Has finished\n");
 	}
+	printf(1, "Result from last changepriority %d", changepriority(63));
 	exit(0);
 }

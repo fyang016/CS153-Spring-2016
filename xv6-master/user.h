@@ -23,6 +23,7 @@ char* sbrk(int);
 int sleep(int);
 int uptime(void);
 int count(void);
+int changepriority(int);
 
 // ulib.c
 int stat(char*, struct stat*);
