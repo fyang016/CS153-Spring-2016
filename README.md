@@ -15,9 +15,6 @@ git push
 
 Fix errors marco mentioned
 
-##Potential errors?
-defs.h: Line ~107 exit(int) 
-
 ##Need to Fix/Change (may or may not highlight actual problems with code)
 -wait_one
 
