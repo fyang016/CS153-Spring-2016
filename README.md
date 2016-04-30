@@ -19,9 +19,7 @@ Fix errors marco mentioned
 defs.h: Line ~107 exit(int) 
 
 ##Need to Fix/Change (may or may not highlight actual problems with code)
--Invalid commands cause crashes
-
--Status variables don't have much significance
+-wait_one
 
 ##Troubleshooting
 ### Running gdb with xv6
@@ -42,19 +40,11 @@ make qemu-nox-gdb
 No symbol table is loaded. Use the "file" command.
 
 in GDB type the following:
-targer remote :26312
+target remote :26312
 
 check to make sure the port is correct. this is given by the output on the GDB Server you create
 
 ## Important things to note
-scheduler is in proc.c
-
-
-
-
-
-
-
 Dealing with “non-fast-forward” errors
 
 From time to time you may encounter this error while pushing:
