@@ -1,4 +1,4 @@
-# [CS153](http://www.cs.ucr.edu/~nael/cs153/index.html) - [Links](https://docs.google.com/document/d/18VAV-ve-HDO7JwX-s9P8zsvN0U2BrPcgXWFgazupUTk/edit?usp=sharing) - [JSW](https://github.com/jinsongwei/xv6-public)
+# [CS153](http://www.cs.ucr.edu/~nael/cs153/index.html) - [Links](https://docs.google.com/document/d/18VAV-ve-HDO7JwX-s9P8zsvN0U2BrPcgXWFgazupUTk/edit?usp=sharing) - [JSW](https://github.com/jinsongwei/xv6-public) - [Midterm Study] (https://docs.google.com/document/d/1wZUjOgIXPy3cKMEPo6xftBJa6NhoBmhqp_2vWyVi1mM/edit)
 
 #[Lab 0](http://www.cs.ucr.edu/~nael/cs153/labs/lab0.html) - [Lab 1](http://www.cs.ucr.edu/~nael/cs153/labs/lab1.html) - [Lab 2](http://www.cs.ucr.edu/~nael/cs153/labs/lab2.html)
 
