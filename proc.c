@@ -216,17 +216,51 @@ int clone(int stack, int size, int routine, int arg){
 
     // Clear %eax so that fork returns 0 in the child.
     np->tf->eax = 0;
-//    np->tf->ebp = (uint)stack + (uint)size;
-//    char *s1 = (char *)proc->tf->ebp - size;
-//    char *s2 = (char *)stack;
-//    memmove(s2,s1,size);
-//
-//    int offset = (uint)proc->tf->ebp - (uint)proc->tf->esp;
-//    cprintf("offset : %d\n",offset);
-//    np->tf->esp = (uint)np->tf->ebp - offset;
 
-    uint ustack[2];
+   
+    uint ustack[MAXARG];
     uint sp = stack + PGSIZE;
+
+
+//modify here >>>
+//    uint argc;
+//    char **argv;
+//    argv = (char **)arg;
+//    np->tf->ebp = sp;
+//    cprintf("in clone argv addr = %d\n",argv);
+//    for(argc = 0; argv[argc];argc++){
+//        if(argc >= MAXARG){
+//            cprintf("execeed max args\n");
+//            return -1;
+//        }
+//        sp = (sp - (strlen(argv[argc]) + 1)) & ~3;
+//        if(copyout(np->pgdir,sp,argv[argc],strlen(argv[argc]) + 1) < 0){
+//            cprintf("copyout wrong \n");
+//            return -1;
+//        }
+//        ustack[3+argc] = sp;
+//    }
+//    ustack[3+argc] = 0;
+//    ustack[0] = 0xffffffff;
+//    ustack[1] = argc;
+//    ustack[2] = sp - (argc + 1)*4;
+//    sp -= (3+argc+1)*4;
+//
+//    if(copyout(np->pgdir,sp,ustack,(3+argc+1)*4) < 0){
+//        cprintf("copyout ustack wrong\n");
+//        return -1;
+//    }
+//    uint cnt; 
+//    cprintf("sp is %d\n",sp);
+//
+//    for (cnt=0;ustack[cnt];cnt++){
+//        cprintf("ustack[%d] is %d\n",cnt,ustack[cnt]);
+//    }
+//
+
+
+//modify here <<<<<
+
     np->tf->ebp = sp;
     ustack[0] = 0xffffffff;
     ustack[1] = arg;
@@ -235,6 +269,7 @@ int clone(int stack, int size, int routine, int arg){
         cprintf("push arg fails\n");
         return -1;
     }
+
     np->tf->eip = routine;
     np->tf->esp = sp;
     np->cwd = idup(proc->cwd);
