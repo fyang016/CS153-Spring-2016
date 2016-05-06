@@ -1,4 +1,4 @@
-# [CS153](http://www.cs.ucr.edu/~nael/cs153/index.html) - [Links](https://docs.google.com/document/d/18VAV-ve-HDO7JwX-s9P8zsvN0U2BrPcgXWFgazupUTk/edit?usp=sharing) - [JSW](https://github.com/jinsongwei/xv6-public) - [Midterm Study] (https://docs.google.com/document/d/1wZUjOgIXPy3cKMEPo6xftBJa6NhoBmhqp_2vWyVi1mM/edit)
+# [CS153](http://www.cs.ucr.edu/~nael/cs153/index.html) - [Links](https://docs.google.com/document/d/18VAV-ve-HDO7JwX-s9P8zsvN0U2BrPcgXWFgazupUTk/edit?usp=sharing) - [JSW](https://github.com/jinsongwei/xv6-public)
 
 #[Lab 0](http://www.cs.ucr.edu/~nael/cs153/labs/lab0.html) - [Lab 1](http://www.cs.ucr.edu/~nael/cs153/labs/lab1.html) - [Lab 2](http://www.cs.ucr.edu/~nael/cs153/labs/lab2.html)
 
@@ -9,7 +9,7 @@ git pull
 
 git add *
 
-git commit -m “message”
+git commit -m "message"
 
 git remote set-url origin https://fyang016@github.com/fyang016/CS153-Spring-2016.git
 
@@ -21,6 +21,7 @@ Fix errors marco mentioned
 
 ##Need to Fix/Change (may or may not highlight actual problems with code)
 -wait_one
+-lab 2 (to be released)
 
 ##Troubleshooting
 ### Running gdb with xv6
@@ -64,7 +65,6 @@ In other cases this error is a result of destructive changes made locally by usi
 
 =======
 While you can override the remote by adding --force to the push command, you should only do so if you are absolutely certain this is what you want to do. Force-pushes can cause issues for other users that have fetched the remote branch, and is considered bad practice. When in doubt, don’t force-push.
->>>>>>> wait
 
 
 ##Pulling from another branch
