@@ -1,0 +1,9 @@
+The walkthrough tentatively consists of the following questions (may be subject ot modifications until May 11). 
+Where an outline of an implementation is requested, you have to list all the major items clearly:
+
+-Outline the implementation of the semaphore acquire function using pseudocode. Also present the pseudocode for problem 3 of the synchronization problems.
+
+-Reach chapter 2 in the xv6 book. Briefly explain the operation of kvmalloc() and mappages() and Figure 2-2.
+
+-Outline your plan to implement Part 2.1
+
