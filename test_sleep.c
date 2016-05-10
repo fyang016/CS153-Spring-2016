@@ -35,22 +35,17 @@ int main(int argc, char *argv[]){
     printf(1,"wakeup only one thread\n");
     //find that thread
     lock_acquire(&ttable.lock);
-    i = 0;
     for(t=ttable.threads;t < &ttable.threads[64];t++){
         if(t->tid != 0){
-            if(i == 2)
-                break;
             printf(1,"found one... %d,   wake up lazy boy !!!\n",t->tid);
             twakeup(t->tid);
             i++;
         }
     }
     lock_release(&ttable.lock);
-    printf(1,"\n\n..... got here......\n\n");
     wait();
     wait();
     wait();
-    printf(1,"\n\n..... got here....2 2 2 ..\n\n");
     free(stack);
     exit();
 }
