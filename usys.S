@@ -31,4 +31,6 @@ SYSCALL(sleep)
 SYSCALL(uptime)
 SYSCALL(clone)
 SYSCALL(texit)
+SYSCALL(tsleep)
+SYSCALL(twakeup)
 

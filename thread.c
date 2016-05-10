@@ -6,7 +6,6 @@
 #include "x86.h"
 #include "proc.h"
 
-
 void lock_init(lock_t *lock){
     lock->locked = 0;
 }
@@ -40,6 +39,7 @@ void *thread_create(void(*start_routine)(void*), void *arg){
         return 0;
     }
     if(tid > 0){
+        //store threads on thread table
         return garbage_stack;
     }
     if(tid == 0){
@@ -50,7 +50,6 @@ void *thread_create(void(*start_routine)(void*), void *arg){
 
     return 0;
 }
-
 
 
 

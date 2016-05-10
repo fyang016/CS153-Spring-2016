@@ -109,3 +109,21 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
+int
+sys_tsleep(void)
+{
+    tsleep();
+    return 0;
+}
+
+int 
+sys_twakeup(void)
+{
+    int tid;
+    if(argint(0,&tid) < 0){
+        return -1;
+    }
+        twakeup(tid);
+        return 0;
+}
