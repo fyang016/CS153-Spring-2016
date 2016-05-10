@@ -32,7 +32,6 @@ int main(int argc, char *argv[]){
 
     i=0;
     while(i++ < 1000000);
-    printf(1,"wakeup only one thread\n");
     //find that thread
     lock_acquire(&ttable.lock);
     for(t=ttable.threads;t < &ttable.threads[64];t++){
