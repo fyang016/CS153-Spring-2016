@@ -2,7 +2,7 @@
 #include "queue.h"
 
 struct sema{
-    int lock_t lock;
+    lock_t lock;
     int count;
     struct queue q;
 };

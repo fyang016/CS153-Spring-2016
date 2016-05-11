@@ -36,6 +36,10 @@ int pop_q(struct queue *q){
        q->head = q->head->next;
        free(destroy);
        q->size--;
+       if(q->size == 0){
+            q->head = 0;
+            q->tail = 0;
+       }
        return val;
     }
     return -1;
