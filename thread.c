@@ -51,5 +51,3 @@ void *thread_create(void(*start_routine)(void*), void *arg){
     return 0;
 }
 
-
-
