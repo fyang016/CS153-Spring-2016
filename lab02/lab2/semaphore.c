@@ -1,3 +1,5 @@
+
+
 #include "types.h"
 #include "defs.h"
 #include "param.h"
@@ -12,13 +14,13 @@
 //full then we will add the process to the list of
 //processes holding the lock.
 void
-sem_aquire(semaphore * s){
+sem_aquire(struct Semaphore * s){
 
 }
 
 //Removes a process from a lock and decreases counter
 //to indicate that more process can hold the lock.
 void
-sem_signal(semaphore * s){
+sem_signal(struct Semaphore * s){
 
 }

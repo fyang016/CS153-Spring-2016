@@ -1,6 +1,6 @@
 
-struct semaphore{
+struct Semaphore{
 	uint counter;
-	proc * holders;
+	struct proc holders[10];
 };
 
