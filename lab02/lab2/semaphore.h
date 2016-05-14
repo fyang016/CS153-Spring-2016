@@ -1,6 +1,6 @@
 
 struct Semaphore{
-	uint counter;
-	struct proc holders[10];
+	uint counter; //Initialize with size
+	uint size;    //How many processes can hold the lock
 };
 

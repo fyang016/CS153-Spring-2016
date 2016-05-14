@@ -459,8 +459,10 @@ sched(void)
 
     if(!holding(&ptable.lock))
         panic("sched ptable.lock");
-    if(cpu->ncli != 1)
+    if(cpu->ncli != 1){
+        cprintf("current proc %d\n cpu->ncli %d\n",proc->pid,cpu->ncli);
         panic("sched locks");
+    }
     if(proc->state == RUNNING)
         panic("sched running");
     if(readeflags()&FL_IF)
@@ -550,6 +552,18 @@ wakeup1(void *chan)
             p->state = RUNNABLE;
 }
 
+void 
+twakeup(int tid){
+    struct proc *p;
+    acquire(&ptable.lock);
+    for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+        if(p->state == SLEEPING && p->pid == tid && p->isthread == 1){
+            wakeup1(p);
+        }
+    }
+    release(&ptable.lock);
+}
+
 // Wake up all processes sleeping on chan.
     void
 wakeup(void *chan)
@@ -619,4 +633,10 @@ procdump(void)
     }
 }
 
+void tsleep(void){
+    
+    acquire(&ptable.lock); 
+    sleep(proc, &ptable.lock);
+    release(&ptable.lock);
 
+}
