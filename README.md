@@ -1,4 +1,4 @@
-# [CS153](http://www.cs.ucr.edu/~nael/cs153/index.html) - [Links](https://docs.google.com/document/d/18VAV-ve-HDO7JwX-s9P8zsvN0U2BrPcgXWFgazupUTk/edit?usp=sharing) - [JSW](https://github.com/jinsongwei/xv6-public) - [Remzi](http://pages.cs.wisc.edu/~remzi/Classes/537/Spring2016/)
+# [CS153](http://www.cs.ucr.edu/~nael/cs153/index.html) - [Links](https://docs.google.com/document/d/18VAV-ve-HDO7JwX-s9P8zsvN0U2BrPcgXWFgazupUTk/edit?usp=sharing) - [JSW](https://github.com/jinsongwei/xv6-public) - [Remzi](http://pages.cs.wisc.edu/~remzi/Classes/537/Spring2016/) - [example.pdf](http://www.cs.ucr.edu/~nael/cs153/example.pdf)
 
 #[Lab 0](http://www.cs.ucr.edu/~nael/cs153/labs/lab0.html) - [Lab 1](http://www.cs.ucr.edu/~nael/cs153/labs/lab1.html) - [Lab 2](http://www.cs.ucr.edu/~nael/cs153/labs/lab2.html)
 
