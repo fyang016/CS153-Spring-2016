@@ -2,7 +2,7 @@
 
 #[Lab 0](http://www.cs.ucr.edu/~nael/cs153/labs/lab0.html) - [Lab 1](http://www.cs.ucr.edu/~nael/cs153/labs/lab1.html) - [Lab 2](http://www.cs.ucr.edu/~nael/cs153/labs/lab2.html)
 
-#[HW1](http://www.cs.ucr.edu/~nael/cs153/resources/hw1.pdf) - [HW1K](http://www.cs.ucr.edu/~nael/cs153/resources/hw1-key.txt)  - [HW2](http://www.cs.ucr.edu/~nael/cs153/resources/hw2.pdf) - [HW3](http://www.cs.ucr.edu/~nael/cs153/resources/hw3.pdf)
+#[HW1](http://www.cs.ucr.edu/~nael/cs153/resources/hw1.pdf) - [HW1K](http://www.cs.ucr.edu/~nael/cs153/resources/hw1-key.txt)  - [HW2](http://www.cs.ucr.edu/~nael/cs153/resources/hw2.pdf) - [HW2K](http://www.cs.ucr.edu/~nael/cs153/resources/key-hw2.txt) - [HW3](http://www.cs.ucr.edu/~nael/cs153/resources/hw3.pdf) - [HW3K](http://www.cs.ucr.edu/~nael/cs153/resources/key-hw3.txt)
 Welcome!
 ## How to commit to repo
 git pull
