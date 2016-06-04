@@ -24,3 +24,4 @@
 #define SYS_texit  23
 #define SYS_tsleep 24
 #define SYS_twakeup 25
+#define SYS_test 26

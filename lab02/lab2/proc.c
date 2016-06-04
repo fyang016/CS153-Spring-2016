@@ -640,3 +640,7 @@ void tsleep(void){
     release(&ptable.lock);
 
 }
+
+void test(int function){
+    panic("Gone Wrong NOOB");
+}

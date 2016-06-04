@@ -120,6 +120,7 @@ void            tsleep(void);
 void            yield(void);
 int             clone(int stack, int size,int routine,int arg);
 void            texit(void);
+void 			test(int); //////////////marco rubio
 
 // swtch.S
 void            swtch(struct context**, struct context*);

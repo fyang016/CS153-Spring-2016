@@ -33,4 +33,5 @@ SYSCALL(clone)
 SYSCALL(texit)
 SYSCALL(tsleep)
 SYSCALL(twakeup)
+SYSCALL(test)
 

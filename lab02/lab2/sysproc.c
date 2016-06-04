@@ -127,3 +127,14 @@ sys_twakeup(void)
         twakeup(tid);
         return 0;
 }
+
+int 
+sys_test(void)
+{
+    int id;
+    if(argint(0,&id) < 0){
+        return -1;
+    }
+        test(id);
+        return 0;
+}
