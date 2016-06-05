@@ -1,1 +1,1 @@
-test.o: test.c /usr/include/stdc-predef.h types.h user.h
+test.o: test.c types.h user.h

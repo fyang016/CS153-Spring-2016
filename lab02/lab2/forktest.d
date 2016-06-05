@@ -1,1 +1,1 @@
-forktest.o: forktest.c /usr/include/stdc-predef.h types.h stat.h user.h
+forktest.o: forktest.c types.h stat.h user.h

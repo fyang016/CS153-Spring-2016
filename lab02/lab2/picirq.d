@@ -1,1 +1,1 @@
-picirq.o: picirq.c /usr/include/stdc-predef.h types.h x86.h traps.h
+picirq.o: picirq.c types.h x86.h traps.h

@@ -1,1 +1,1 @@
-test_sleep.o: test_sleep.c /usr/include/stdc-predef.h types.h user.h
+test_sleep.o: test_sleep.c types.h user.h

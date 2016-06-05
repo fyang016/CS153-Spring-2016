@@ -1,1 +1,1 @@
-sh.o: sh.c /usr/include/stdc-predef.h types.h user.h fcntl.h
+sh.o: sh.c types.h user.h fcntl.h

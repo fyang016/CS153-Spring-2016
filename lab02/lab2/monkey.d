@@ -1,2 +1,1 @@
-monkey.o: monkey.c /usr/include/stdc-predef.h types.h user.h semaphore.h \
- queue.h
+monkey.o: monkey.c types.h user.h semaphore.h queue.h

@@ -51,7 +51,7 @@ TOOLPREFIX := $(shell if i386-jos-elf-objdump -i 2>&1 | grep '^elf32-i386$$' >/d
 endif
 
 # If the makefile can't find QEMU, specify its path here
-QEMU =  /usr/bin/qemu-system-i386
+# QEMU =  /usr/bin/qemu-system-i386
 
 # Try to infer the correct QEMU
 ifndef QEMU
@@ -158,28 +158,28 @@ UPROGS=\
 	_cat\
 	_echo\
 	_forktest\
+	_frisbee\
 	_grep\
+	_h2o\
 	_init\
 	_kill\
 	_ln\
 	_ls\
 	_mkdir\
+	_monkey\
+	_monkey_oneway\
 	_null\
 	_rm\
 	_sh\
 	_stressfs\
-	_usertests\
 	_test\
 	_test1\
 	_test_q\
-	_frisbee\
+	_testing\
 	_test_sleep\
+	_usertests\
 	_wc\
 	_zombie\
-	_testing\
-	_h2o\
-	_monkey\
-	_monkey_oneway\
 
 fs.img: mkfs README $(UPROGS)
 	./mkfs fs.img README $(UPROGS)

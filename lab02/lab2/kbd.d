@@ -1,1 +1,1 @@
-kbd.o: kbd.c /usr/include/stdc-predef.h types.h x86.h defs.h kbd.h
+kbd.o: kbd.c types.h x86.h defs.h kbd.h
