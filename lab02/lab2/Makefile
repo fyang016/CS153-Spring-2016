@@ -178,6 +178,8 @@ UPROGS=\
 	_zombie\
 	_testing\
 	_h2o\
+	_monkey\
+	_monkey_oneway\
 
 fs.img: mkfs README $(UPROGS)
 	./mkfs fs.img README $(UPROGS)
@@ -251,7 +253,7 @@ EXTRA=\
 	test_q.c\
 	README dot-bochsrc *.pl toc.* runoff runoff1 runoff.list\
 	.gdbinit.tmpl gdbutil\
-	testing.c h2o.c\
+	testing.c h2o.c monkey.c monkey_oneway.c\
 
 dist:
 	rm -rf dist
