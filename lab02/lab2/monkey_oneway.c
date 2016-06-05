@@ -60,8 +60,13 @@ monkey(){
   printf(1, "%d",pid);
   printf(1, " - 2");
   printf(1, " - %d\n", 3 - wait_tree.count);
-  sleep(3); 
   sem_aquire(&mutex1);
+  movingup++;
+  if(movingup==1){
+  	sem_aquire(&climb);
+  }
+  sem_signal(&mutex1);
+  sleep(3); 
   printf(1, "%d",pid);
   printf(1, " - 3");
   printf(1, " - %d\n", 3 - wait_tree.count);

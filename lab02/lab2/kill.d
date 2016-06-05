@@ -1,1 +1,1 @@
-kill.o: kill.c types.h stat.h user.h
+kill.o: kill.c /usr/include/stdc-predef.h types.h stat.h user.h
