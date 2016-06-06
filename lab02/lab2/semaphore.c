@@ -21,7 +21,7 @@ sem_aquire(struct semaphore * s){
 	//Else add to the holding list
 	lock_acquire(&s->lock);
 	if(s->count  == 0){
-  		printf(1, "Sem F\n");
+  		//printf(1, "Sem F\n");
 		//add proc to waiters list
 		int tid = getpid();
 		//place requesting process to sleep
@@ -31,7 +31,7 @@ sem_aquire(struct semaphore * s){
 		tsleep(); 
 	}
 	else{
-  		printf(1, "Sem A\n");
+  		//printf(1, "Sem A\n");
 		s->count--;	
 		lock_release(&s->lock);
 	}
@@ -41,7 +41,7 @@ sem_aquire(struct semaphore * s){
 //to indicate that more process can hold the lock.
 void
 sem_signal(struct semaphore * s){
-	printf(1, "Sem R\n");
+	//printf(1, "Sem R\n");
 	//If count is full then place proccess on waiters list
 	lock_acquire(&s->lock);
 	if(s->count < s->size){
@@ -51,9 +51,10 @@ sem_signal(struct semaphore * s){
 	int tid;
 	tid = pop_q(&s->waiters);
 	if(tid != -1){
-		printf(1, "Sem A\n");
+		//printf(1, "Sem A\n");
 		twakeup(tid);
 		s->count--;
+		if(s->count < 0) s->count = 0;
 	}
 	lock_release(&s->lock);
 

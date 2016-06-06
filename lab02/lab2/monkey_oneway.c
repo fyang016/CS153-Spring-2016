@@ -8,12 +8,11 @@ struct semaphore mutex1;
 struct semaphore mutex2;
 struct semaphore climb;
 
-int movingup =0;
+int movingup = 0;
 int movingdown = 0;
 
-void oReady();
-
 void monkey();
+void printMessage(int, int);
 
 int main(int argc, char *argv[])
 {
@@ -23,7 +22,6 @@ int main(int argc, char *argv[])
 	sem_init(&climb, 1);  //Initialize semaphore with 5 slots
 	
 	int i;
-	sem_signal(&wait_tree);
 	sem_signal(&wait_tree);
 	sem_signal(&wait_tree);
 	sem_signal(&wait_tree);
@@ -53,26 +51,47 @@ int main(int argc, char *argv[])
 void 
 monkey(){
   int pid =  getpid();
-  printf(1, "%d",pid);
-  printf(1, " - 1");
-  printf(1, " - %d\n", 3 - wait_tree.count);
+
+  printMessage(pid, 1);
   sem_aquire(&wait_tree);
-  printf(1, "%d",pid);
-  printf(1, " - 2");
-  printf(1, " - %d\n", 3 - wait_tree.count);
+
+  printMessage(pid, 2);  
+  //climb_tree
   sem_aquire(&mutex1);
   movingup++;
-  if(movingup==1){
-  	sem_aquire(&climb);
-  }
+  if(movingup==1)	sem_aquire(&climb);
   sem_signal(&mutex1);
+
+  // Get coconut
   sleep(3); 
-  printf(1, "%d",pid);
-  printf(1, " - 3");
-  printf(1, " - %d\n", 3 - wait_tree.count);
+
+  //got coconut
+  sem_aquire(&mutex1);
+  movingup--;
+  if(movingup==0)	sem_signal(&climb);
+  sem_signal(&mutex1);
+
+  // Climb Down
+  sem_aquire(&mutex2);
+  movingdown++;
+  if(movingdown == 1)	sem_aquire(&climb);
+  sem_signal(&mutex2);
+
+  printMessage(pid, 3);
+  // Climb Down
+  sem_aquire(&mutex2);
+  movingdown--;
+  if(movingdown == 0)	sem_signal(&climb);
+  sem_signal(&mutex2);
+
   sem_signal(&wait_tree);
-  printf(1, "%d",pid);
-  printf(1, " - 4"); 
-  printf(1, " - %d\n", 3 - wait_tree.count);  
+  printMessage(pid, 4);
   texit();
+}
+
+void printMessage(int pid, int state){
+  printf(1, "%d",pid);
+  printf(1, " - %d", state); 
+  printf(1, " - %d\n", 3 - wait_tree.count);  
+  
 }

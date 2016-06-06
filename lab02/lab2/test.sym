@@ -1,8 +1,8 @@
 00000000 .text
-00000c4a .rodata
-00000d08 .eh_frame
-000010e8 .data
-00001100 .bss
+00000c0e .rodata
+00000cb4 .eh_frame
+00001094 .data
+000010ac .bss
 00000000 .comment
 00000000 .debug_aranges
 00000000 .debug_info
@@ -15,10 +15,10 @@
 00000000 printf.c
 0000040f putc
 00000437 printint
-000010ec digits.1055
+00001098 digits.1055
 00000000 umalloc.c
-00001100 base
-00001108 freep
+000010ac base
+000010b4 freep
 00000783 morecore
 00000000 thread.c
 000008bb xchg
@@ -30,7 +30,7 @@
 000003ff twakeup
 000003f7 tsleep
 00000302 memmove
-000010e8 n
+00001094 n
 0000038f mknod
 000001f1 gets
 000003c7 getpid
@@ -55,7 +55,7 @@
 0000033f fork
 000003cf sbrk
 000003df uptime
-000010fd __bss_start
+000010a9 __bss_start
 0000019a memset
 00000000 main
 000008e3 lock_acquire
@@ -64,9 +64,9 @@
 00000134 strcmp
 000003bf dup
 00000267 stat
-000010fd _edata
-0000110c _end
-00000bb4 sem_signal
+000010a9 _edata
+000010b8 _end
+00000b8c sem_signal
 00000a0d add_q
 000003a7 link
 00000347 exit
