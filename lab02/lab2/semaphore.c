@@ -5,8 +5,15 @@
 void 
 sem_init(struct semaphore *s, int size){
 	s->size = size;
+	s->count = size;
+	lock_init(&s->lock);
+}
+
+void 
+sem_init_full(struct semaphore *s, int size){
+	s->size = size;
 	s->count= 0;
-	lock_init(&s->lock); //implicid declaration???
+	lock_init(&s->lock);
 }
 
 //Attempts to aquire a lock. If count is not
@@ -47,7 +54,7 @@ sem_signal(struct semaphore * s){
 	if(s->count < s->size){
 		s->count++;	
 	}
-	
+
 	int tid;
 	tid = pop_q(&s->waiters);
 	if(tid != -1){

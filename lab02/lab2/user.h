@@ -41,6 +41,7 @@ void* memset(void*, int, uint);
 void* malloc(uint);
 void free(void*);
 int atoi(const char*);
+int random(int);
 
 void *thread_create(void (*start_routine)(void*), void *arg);
 // lock util

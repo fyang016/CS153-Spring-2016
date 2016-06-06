@@ -11,6 +11,7 @@ struct semaphore{
 };
 
 void sem_init(struct semaphore *, int size);
+void sem_init_full(struct semaphore *, int size);
 void sem_aquire(struct semaphore *);
 void sem_signal(struct semaphore *);
 
