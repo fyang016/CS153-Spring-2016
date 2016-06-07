@@ -168,6 +168,7 @@ UPROGS=\
 	_mkdir\
 	_monkey\
 	_monkey_oneway\
+	_monkey_dominant\
 	_null\
 	_rm\
 	_sh\
@@ -252,7 +253,7 @@ EXTRA=\
 	test_q.c\
 	README dot-bochsrc *.pl toc.* runoff runoff1 runoff.list\
 	.gdbinit.tmpl gdbutil\
-	testing.c h2o.c monkey.c monkey_oneway.c\
+	testing.c h2o.c monkey.c monkey_oneway.c monkey_dominant.c\
 
 dist:
 	rm -rf dist

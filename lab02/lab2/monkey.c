@@ -10,6 +10,7 @@ struct semaphore printer_mutex2;
 struct semaphore mutex;
 
 int monkeys_on_tree = 0;
+int number_of_monkeys = 5;
 
 void monkey();
 void printMessage(int, int);
@@ -21,9 +22,10 @@ int main(int argc, char *argv[])
   sem_init(&printer_mutex1, 1);
   sem_init(&printer_mutex2, 1);
   sem_init(&mutex, 1);
-	
+	  
+  printf(1,"Creating %d Monkeys\n\n", number_of_monkeys);
 	int i;
-	for(i = 0; i < 5; i++) thread_create(monkey, 0);
+	for(i = 0; i < number_of_monkeys; i++) thread_create(monkey, 0);
     while(wait() > 0);
 	printf(1,"All monkeys are full\n");
 	exit();
@@ -48,7 +50,9 @@ monkey(){
 
   sleep(100);   // Get coconut
 
+  sem_aquire(&mutex);
   printMessage(pid, 6); // Got a coconut
+  sem_signal(&mutex); 
 
   //printMessage(pid, 3); //Climbing down tree
 
@@ -78,7 +82,7 @@ void printMessage(int pid, int state){
       printf(1, " Waiting  to  climb", state); 
       break;
     case(2):
-      printf(1, " Climbing the  tree", state); 
+      printf(1, " Climbing  up  tree", state); 
       break;
     case(3):
       printf(1, " Climbing down tree", state); 
